@@ -3,7 +3,7 @@ import {Collapse, Button, Grid, Typography, TextField, FormHelperText, FormContr
 import {Link} from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 
-export default class CreateRoomPage extends Component {
+export default class RoomSettingsPage extends Component {
     static defaultProps = {
         votesToSkip: 2,
         guestCanPause: false,

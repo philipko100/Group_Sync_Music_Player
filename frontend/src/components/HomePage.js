@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import RoomJoinPage from "./RoomJoinPage";
-import CreateRoomPage from "./CreateRoomPage";
+import RoomSettingsPage from "./RoomSettingsPage";
 import Room from './Room';
 import  {Grid, Button, ButtonGroup, Typography } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
@@ -62,7 +62,7 @@ export default class HomePage extends Component {
                             : this.renderHomePage()
                     }} />
                     <Route path='/join' component={RoomJoinPage} />
-                    <Route path='/create' component={CreateRoomPage} />
+                    <Route path='/create' component={RoomSettingsPage} />
                     <Route path='/room/:roomCode' 
                         render={(props) => {
                             return <Room {...props} leaveRoomCallBack={this.clearRoomCode} />;
