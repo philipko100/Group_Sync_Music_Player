@@ -10,7 +10,7 @@ class AuthURL(APIView):
     def get(self, request, format=None):
         # spotify scopes defined by the spotify API documentation
         scopes = 'user-read-playback-state user-modify-playback-state user-read-currently-playing'
-        url = Request('GET', 'http://accounts.spotify.com/authorize', params={
+        url = Request('GET', 'https://accounts.spotify.com/authorize', params={
             'scope' : scopes,
             'response_type' : 'code',
             'redirect_uri' : REDIRECT_URI,
@@ -21,10 +21,11 @@ class AuthURL(APIView):
 def spotify_callback(request, format=None):
     code = request.GET.get('code')
     error = request.GET.get('error')
-    response = post('http://accounts.spotify.com/api/token', data={
+    response = post('https://accounts.spotify.com/api/token', data={
         'grant_type' : 'authorization_code',
         'code' : code,
         'redirect_uri' : REDIRECT_URI,
+        'client_id': CLIENT_ID,
         'client_secret' : CLIENT_SECRET
     }).json()
 
